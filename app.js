@@ -3,7 +3,7 @@ const startButton = document.querySelector(".start");
 const timeButtons = document.querySelector(".time-list");
 const timeSpan = document.getElementById("time");
 const board = document.querySelector(".board");
-const colors = ["#f70a1a", "#f70ae0", "#900af7", "#1e0af7", "#0accf7", "#0af7a0", "#0af722", "#f8fc05", "#fc7d05"];
+const colors = ["#000000", "#ffffff", "#f70a1a", "#f70ae0", "#900af7", "#1e0af7", "#0accf7", "#0af7a0", "#0af722", "#f8fc05", "#fc7d05"];
 
 let time = 0;
 let score = 0;
@@ -75,7 +75,9 @@ function addCircle() {
   circle.style.left = `${x}px`;
   circle.style.top = `${y}px`;
   const randomIndex = Math.floor(Math.random() * colors.length);
-  circle.style.background = colors[randomIndex];
+  const color = colors[randomIndex];
+  circle.style.background = color;
+  circle.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
   circle.addEventListener("click", () => {
     score++;
     circle.remove();
